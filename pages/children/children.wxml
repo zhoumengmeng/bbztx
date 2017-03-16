@@ -8,7 +8,7 @@
             </picker>
         </view>
         <view class="teams-search">
-	        <text class="orange">我的活动：</text>
+	        <text class="orange">队伍选择：</text>
             <picker bindchange="changeTeam" value="{{teamIndex}}" range="{{team}}" range-key="name">
                 <view class="picker">{{team[teamIndex].name ? team[teamIndex].name : "暂无相关队伍"}}</view>
                 <text class="arrow"></text>

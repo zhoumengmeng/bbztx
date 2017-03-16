@@ -1,2 +1,36 @@
-<!--pages/live/live.wxml-->
-<text>pages/live/live.wxml</text>
+<view class="page page-live" id="live">
+    <view class="content" id="live">
+        <view class="teams-search">
+	        <text class="orange">我的活动：</text>
+            <picker bindchange="changeActivity" value="{{activityIndex}}" range="{{activity}}" range-key="title">
+                <view class="picker">{{activity[activityIndex].title}}</view>
+                <text class="arrow"></text>
+            </picker>
+        </view>
+        <view class="teams-search">
+	        <text class="orange">队伍选择：</text>
+            <picker bindchange="changeTeam" value="{{teamIndex}}" range="{{team}}" range-key="name">
+                <view class="picker">{{team[teamIndex].name ? team[teamIndex].name : "暂无相关队伍"}}</view>
+                <text class="arrow"></text>
+            </picker>
+        </view>
+        <view class="content-min-pad">
+            <view class="live-list mTop20">
+                <view class="live-list-item" wx:for="{{item}}">
+                    <text class="yuan"></text>
+                    <view class="live-title"><text>{{item.startTime}}</text>-<text>{{item.endTime}}</text></view>
+                    <view class="live-subtitle">{{item.description}}</view>
+                    <view class="comment-pics mTop10">
+                        <view class="comment-pics-item" wx:for="{{item.files}}" wx:for-item="it">
+                            <image src="{{it.address}}"></image>
+                            <button class="del" bindtap="delImg">删除</button>
+                        </view>
+                        <view class="comment-pics-item" bindtap="uploadImg" wx:if="{{item.files.length < 5}}">
+                            <text class="icon ion-upfile"></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
