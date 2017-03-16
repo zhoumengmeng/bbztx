@@ -1,0 +1,10 @@
+<view class="page page-sel-team" id="sel_team">
+    <view id="sel_team" class="content">
+        <view class="content-min-pad sel-team-list">
+            <view wx:for="{{item}}" class="sel-team-item {{options.teamId == item.id ? 'orange' : ''}}" bindtap="changeTeam" data-teamId="{{item.id}}">
+                <i class="icon ion-select pull-right" wx:if="{{options.teamId == item.id}}"></i>
+                <text>{{item.number}}</text>{{item.name}}
+            </view>
+        </view>
+    </view>
+</view>

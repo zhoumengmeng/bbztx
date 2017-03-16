@@ -1,0 +1,28 @@
+<view class="page page-children" id="children">
+    <view id="chilren" class="content">
+        <view class="teams-search">
+	        <text class="orange">我的活动：</text>
+            <picker bindchange="changeActivity" value="{{activityIndex}}" range="{{activity}}" range-key="title">
+                <view class="picker">{{activity[activityIndex].title}}</view>
+                <text class="arrow"></text>
+            </picker>
+        </view>
+        <view class="teams-search">
+	        <text class="orange">我的活动：</text>
+            <picker bindchange="changeTeam" value="{{teamIndex}}" range="{{team}}" range-key="name">
+                <view class="picker">{{team[teamIndex].name ? team[teamIndex].name : "暂无相关队伍"}}</view>
+                <text class="arrow"></text>
+            </picker>
+        </view>
+        <view class="content-min-pad">
+            <view class="children-list mTop20">
+                <view wx:for="{{item}}" class="children-list-item">
+                    <navigator url="../child_detail/child_detail?id={{item.id}}&cardNo={{item.cardNo}}&cardType={{item.cardType}}">
+                        <image src="{{item.avatar}}" class="avatar-logo"></image>
+                        <view class="children-text"><text class="name">{{item.name}}</text>{{item.passportNo}}</view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

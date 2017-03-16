@@ -1,0 +1,39 @@
+.teams-list {
+    margin: 60rpx 0;
+    border-top: 1px solid #ea5404;
+    font-size: 28rpx;
+}
+.teams-list-item{
+    color: #fff;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #ea5404;
+}
+.arrow-up,.arrow-down{
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+}
+.teams-list .icon {
+    font-size: 48rpx;
+}
+.teams-list-sub-item{
+    padding-top:30rpx;
+}
+.teams-list-sub-item navigator{
+    display:inline-block;
+    margin-right:20rpx;
+}
+.teams-list-sub-item .ion-leader,.teams-list-sub-item .ion-member{
+    vertical-align:middle;
+    margin-right:10rpx;
+}
+.team-num{
+    display:inline-block;
+    height:1.4rem;
+    line-height:1.4rem;
+    margin-right:20rpx;
+}
+.team-name{
+    display:inline-block;
+    vertical-align:bottom;
+}

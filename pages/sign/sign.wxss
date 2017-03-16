@@ -1,0 +1,54 @@
+/* pages/sign/sign.wxss */
+.leader-tip {
+    text-align: center;
+    font-size: 0.7rem;
+}
+.leader-sign{
+    margin: 1rem 0;
+    padding: 0;
+}
+.leader-sign .item-inner {
+    border: none;
+    min-height: 1.3rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+.leader-sign .item-title.label {
+    width: 28%;
+    text-align: right;
+    color: #ea5404;
+    font-size: .7rem;
+    margin: 3px 0;
+}
+.leader-sign .item-input input, .leader-sign .item-input picker, .leader-sign .item-input textarea {
+    width:98%;
+    border-radius: 0.3rem;
+    background: #fff;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: .65rem;
+    padding-left:0.25rem;
+}
+.leader-sign .item-input picker{
+    width:50%;
+    position:relative;
+}
+.leader-sign .item-input picker .arrow{
+    position:absolute;
+   width:0;
+   height:0;
+   border:5px solid transparent;
+   border-bottom:none;
+   border-top-color:#ea5404;
+   right:10px;
+   top: 10px;
+}
+.leader-sign .item-input image{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #c9caca;
+    text-align: center;
+    line-height: 2.3rem;
+    overflow: hidden;
+}

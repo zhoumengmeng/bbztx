@@ -1,0 +1,47 @@
+.enrol-box{padding:30rpx 0 56rpx;border-bottom:1px solid #ea5404;}
+.enrol-title{color:#fff;font-size:26rpx;}
+.enrol-title text{font-size:30rpx;}
+.enrol-person{color:#fff;font-size:30rpx;}
+.enrol-person span{color:#ea5404;font-size:26rpx;}
+.enrol-person button{
+    font-size: 24rpx;
+    height:45rpx;
+    line-height:45rpx;
+}
+.enrol-person .arrow-down,.enrol-person .arrow-up{
+    margin-right:40rpx; 
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+}
+.enrol-avatar:after{
+    display:block;
+    content:' ';
+    clear:both;
+}
+.enrol-avatar .enrol-avatar-item{
+    float:left;
+    width:20%;
+    list-style: none;
+    text-align:center;
+}
+.enrol-avatar image{
+    display: block;
+    width:100rpx;
+    height:100rpx;
+    margin:0 auto;
+    border-radius:50%;
+}
+.enrol-avatar-item text{
+    display:inline-block;
+    margin-top:20rpx;
+    font-size:26rpx;
+    color:#908f90;
+    width:100rpx;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+.no-enrol{
+    color:#9fa0a0;
+}

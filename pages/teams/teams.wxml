@@ -1,0 +1,39 @@
+<view class="page page-live" id="live">
+    <view id="live" class="content">
+        <view class="teams-search">
+	        <text class="orange">我的活动：</text>
+            <picker bindchange="changeActivity" value="{{index}}" range="{{activity}}" range-key="title">
+                <view class="picker">{{activity[index].title}}</view>
+                <text class="arrow"></text>
+            </picker>
+        </view>
+        <view class="content-min-pad">
+            <view class="teams-list">
+                <view class="teams-list-item" wx:for="{{item}}" wx:for-index="index" wx:for-item="item" data-teamId="{{item.id}}">
+                <view>
+                    <text class="{{item.flag ? 'arrow-down' : 'arrow-up'}} pull-right" bindtap="fold" data-index="{{index}}"></text>
+                    <text class="team-num">{{item.number}}</text>
+                    <input data-id="{{item.id}}" data-index="{{index}}" disabled="{{inputDisabled}}" class="team-name" type="text" value="{{item.name ? item.name : '暂无队名'}}" bindblur="changeName"  />
+                </view>
+                    <input data-id="{{item.id}}" data-index="{{index}}" type="text" value="{{item.call ? item.call : '点击修改队名'}}" bindblur="changeCall" hidden="{{item.flag ? true : false}}" />
+                    <view hidden="{{item.flag ? true : false}}">
+                        <view class="teams-list-sub-item" wx:for="{{item.leaders}}" wx:for-index="idx" wx:for-item="i">
+                            <view class="pull-right">
+                                <navigator url="../sel_team/sel_team?teamId={{i.teamId}}&groupid={{item.groupid}}&id={{i.uid}}"><text class="icon ion-edit"></text></navigator>
+                                <text class="icon ion-tel"></text>
+                            </view>
+                            <view class="orange"><text class="icon ion-leader"></text>{{i.nickname}}</view>
+                        </view>
+                        <view class="teams-list-sub-item" wx:for="{{item.players}}" wx:for-index="idx" wx:for-item="i">
+                            <view class="pull-right">
+                                <navigator url="../sel_team/sel_team?teamId={{i.teamId}}&groupid={{item.groupid}}&playerId={{i.id}}"><text class="icon ion-edit"></text></navigator>
+                                <text class="icon ion-tel"></text>
+                            </view>
+                            <view class="orange"><text class="icon ion-member"></text>{{i.name}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

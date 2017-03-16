@@ -1,0 +1,101 @@
+<!--index.wxml-->
+<view class="page page-login" id="home">
+  <view id="home" class="content">
+    <view wx:if="{{item.leaderStatus == 2}}">
+        <view class="account-box">
+            <view class="account-head pull-left">
+                <image src="{{item.avatar}}" />
+            </view>
+            <view class="account-content">
+                <view class="account-text">
+                    {{item.nickname}}
+                    <view class="font14">活动次数：<text class="orange">{{item.count}}</text></view>
+                </view>
+                <view wx:if="{{item.leaderLevel == 1}}">
+                    <view class="icon ion-shixi"></view>
+                </view>
+                <view wx:if="{{item.leaderLevel == 2}}">
+                    <i class="icon ion-hege"></i>
+                </view>
+                <view wx:if="{{item.leaderLevel == 3}}">
+                    <view class="icon ion-youxiu"></view>
+                </view>
+                <view wx:if="{{item.leaderLevel == 4}}">
+                    <view class="icon ion-fuzeren"></view>
+                </view>
+            </view>
+        </view>
+        <view class="row no-gutter account-icon">
+            <navigator url="../enrol/enrol" class="col-33">
+                <text class="aicon"><text class="icon ion-sign"></text></text>
+                <text class="label">活动报名</text>
+            </navigator>
+            <navigator url="../teams/teams" class="col-33">
+                <text class="aicon"><text class="icon ion-team"></text></text>
+                <text class="label">活动分队</text>
+            </navigator>
+            <navigator url="../children/children" class="col-33">
+                <text class="aicon"><text class="icon ion-child"></text></text>
+                <text class="label">我的儿童</text>
+            </navigator>
+        </view>
+        <view class="row no-gutter account-icon">
+            <navigator url="../live/live" class="col-33">
+                <text class="aicon"><text class="icon ion-live"></text></text>
+                <text class="label">活动直播</text>
+            </navigator>
+            <navigator url="teams.html" class="col-33">
+                <text class="aicon"><text class="icon ion-data"></text></text>
+                <text class="label">活动资料</text>
+            </navigator>
+            <navigator url="children.html" class="col-33">
+                <text class="aicon"><text class="icon ion-discuss"></text></text>
+                <text class="label">论坛讨论</text>
+            </navigator>
+        </view>
+        <view class="row no-gutter account-icon">
+            <navigator url="enrol.html" class="col-33">
+                <text class="aicon"><text class="icon ion-honour"></text></text>
+                <text class="label">领队晋升</text>
+            </navigator>
+            <navigator url="teams.html" class="col-33">
+                <text class="aicon"><text class="icon ion-activity"></text></text>
+                <text class="label">我的活动</text>
+            </navigator>
+            <navigator url="children.html" class="col-33">
+                <text class="aicon"><text class="icon ion-setting"></text></text>
+                <text class="label">设置</text>
+            </navigator>
+        </view>
+    </view>
+    <view wx:if="{{item.leaderStatus == 1}}">
+        <view class="baby-home-box"><view class="baby-home"></view></view>
+        <view class="sign-tips">
+            <view>您报名成功，等待审核。</view>
+            <view>感谢您关注宝贝走天下。</view>
+            <navigator url="material.html" class="orange">修改个人资料>></navigator>
+        </view>
+    </view>
+    <view wx:if="{{item.leaderStatus == 3}}">
+        <view class="baby-home-box"><view class="baby-home"></view></view>
+        <view class="sign-tips">
+            <view>很遗憾，您没有通过审核。</view>
+            <view>感谢您关注宝贝走天下。</view>
+        </view>
+    </view>
+    <view wx:if="{{item.leaderStatus == 4}}">
+        <view class="baby-home-box"><view class="baby-home"></view></view>
+        <view class="sign-tips">
+            <view>很遗憾，您已被删除。</view>
+            <view>感谢您关注宝贝走天下。</view>
+        </view>
+    </view>
+    <view wx:if="{{item.leaderStatus == 0}}">
+        <view class="baby-home-box"><view class="baby-home"></view></view>
+        <view class="sign-tips">
+            <view>很遗憾，您还未成为领队。</view>
+            <view>感谢您关注宝贝走天下。</view>
+        </view>
+    </view>
+  </view>
+</view>

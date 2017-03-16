@@ -1,0 +1,24 @@
+<view class="page page-login" id="login">
+  <view id="login" class="content">
+    <view class="baby-home-box mTop20">
+      <view class="baby-home"></view>
+    </view>
+    <view class="inputs">
+      <form id="login-form">
+        <view class="login-input">
+          <input type="number" placeholder="输入手机号码" placeholder-class="placeholder" bindinput="listenPhone" />
+        </view>
+        <view class="login-input">
+          <input type="text" password="true" placeholder="输入登录密码" placeholder-class="placeholder" bindinput="listenPassword" />
+        </view>
+        <p><button class="button button-warning button-round" bindtap="login">登录</button></p>
+      </form>
+      <button class="button button-success button-round mTop10">微信快捷登陆</button>
+      <view class="otherLoginBtn mTop10">
+        <navigator url="../forget_mobile/forget_mobile" class="pull-right">忘记密码</navigator>
+        <navigator url="../register/register">手机号注册</navigator>
+      </view>
+    </view>
+    <view class="login-logo"><view class="baby-tip"></view></view>
+  </view>
+</view>

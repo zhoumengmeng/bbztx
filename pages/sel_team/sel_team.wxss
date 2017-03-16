@@ -1,0 +1,8 @@
+/* pages/sel_team/sel_team.wxss */
+.sel-team-list{
+    color: #fff;
+}
+.sel-team-item{
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #ea5404;
+}

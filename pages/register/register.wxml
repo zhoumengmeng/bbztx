@@ -1,0 +1,32 @@
+<view class="page page-login" id="login">
+    <view id="login" class="content">
+        <view class="baby-home-box mTop20">
+            <view class="baby-home"></view>
+        </view>
+        <form id="register-form">
+            <view class="inputs">
+                <view class="login-input">
+                    <view class="item-input">
+                        <input type="number" placeholder="输入手机号码" />
+                    </view>
+                </view>
+                <view class="login-input">
+                    <view class="item-input">
+                        <input type="number" name="vcode" placeholder="输入验证码" />
+                    </view>
+                    <view class="item-after">
+                        <button class="button button-warning getCode">获取验证码</button>
+                    </view>
+                </view>
+                <view class="login-input">
+                    <view class="item-input">
+                        <input type="text" password="true" placeholder="设置新的登录密码" />
+                    </view>
+                </view>
+            </view>
+            <view class="content-pad">
+                <button class="button button-warning button-round">确定找回</button>
+            </view>
+        </form> 
+    </view>
+</view>

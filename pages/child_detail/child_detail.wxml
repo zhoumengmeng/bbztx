@@ -1,0 +1,211 @@
+<view class="page page-child-detail" id="child-detail">
+    <view class="content" id="child-detail">
+        <view class="child-tabs" bindtap="tab">
+            <text class="tab-link {{index==0?' active' :''}}" data-index="0">录入点评</text>
+            <text class="tab-link {{index==1?' active' :''}}" data-index="1">活动记录</text>
+            <text class="tab-link {{index==2?' active' :''}} last" data-index="2">基本信息</text>
+        </view>
+        <view wx:if="{{index == 0}}">
+            <view class="bar" bindtap="commentSubmit">提交</view>
+            <scroll-view scroll-y="true" class="content-min-pad bar-content tab-content">
+            <view class="list-block child-form">
+                <view class="item-content">
+                    <view class="item-inner">
+                        <view class="item-title label">宝贝姓名：</view>
+                        <view class="item-input">
+                            {{comment.name}}
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content">
+                    <view class="item-inner">
+                        <view class="item-title label">活动名称：</view>
+                        <view class="item-input">
+                            {{comment.sname+" "+comment.title}}
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content">
+                    <view class="item-inner">
+                        <view class="item-title label">队名：</view>
+                        <view class="item-input">
+                            {{comment.teamName}}
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content">
+                    <view class="item-inner">
+                        <view class="item-title label">职务：</view>
+                        <view class="item-input">
+                            <picker mode = selector bindchange="changeDuty" value="{{dutyIndex}}" range="{{duties}}">
+                                <view class="picker">{{duties[dutyIndex]}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content">
+                    <view class="item-inner">
+                        <view class="item-title label"></view>
+                        <view class="item-input">
+                            <input type="text" placeholder="请输入其他职务" bindblur="fillJob" />
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content align-top">
+                    <view class="item-inner">
+                        <view class="item-title label">点评：</view>
+                        <view class="item-input">
+                            <textarea placeholder="留下点什么？" style="height:300rpx;margin-top:20rpx;" value="{{comment.comment}}" bindblur="fillComment" />
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content">
+                    <view class="item-inner">
+                        <view class="item-title label">资料：</view>
+                        <view class="item-input">
+                            <input type="text" placeholder="请输入照片的下载地址" value="{{comment.url}}" bindblur="fillUrl" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="orange font12 mTop10">
+                照片（活动现场最多五张）
+            </view>
+            <view class="comment-pics mTop10">
+                <view class="comment-pics-item" wx:for="{{comment.pics}}">
+                    <image data-index="{{index}}" src="{{item}}"></image>
+                    <button class="del" bindtap="delImg">删除</button>
+                </view>
+                <view class="comment-pics-item" bindtap="uploadImg" hidden="{{comment.pics.length >= 5 ? true : false}}">
+                    <text class="icon ion-upfile"></text>
+                </view>
+            </view>
+            </scroll-view>
+        </view>
+        <view wx:if="{{index == 1}}">
+            <view class="baby-record">
+                <view class="col-25">
+                    <view class="head"><image src="{{record.avatar}}" class="avatar-logo" /></view>
+                </view>
+                <view class="col-25">{{record.name}}</view>
+                <view class="col-25">
+                    <view class="baby-gray"><view class="honour-text"><i class="icon ion-honour"></i> 勋章 </view><text class="honourW">{{record.medal}}枚</text></view>
+                    <view class="baby-gray"><view class="honour-text"><i class="icon ion-seal"></i> 印章 </view><text class="honourW">{{record.seal}}枚</text></view>
+                </view>
+                <view class="col-25 last">
+                    <view class="font20">{{record.precent ? record.precent : 0}}%</view>
+                    <text class="baby-red">超越</text>
+                </view>
+            </view>
+            <view class="record-content white-bg" wx:for="{{record.activitys}}">
+                <view class="record" data-index="{{index}}">
+                    <view class="record-title">
+                        <view><text class="ltitle">{{item.sname}}</text><text class="rtitle orange">{{item.atitle}}</text></view>
+                        <view class="mTop10"><navigator url="" class="orange pull-right">查看队伍流程>></navigator><text class="orange font20 record-name">{{record.name}}</text><text class="baby-gray">{{item.team}}</text></view>
+                    </view>
+                    <view wx:for="{{item.pics}}" wx:for-item="it" wx:for-index="idx">
+                        <view class="record-img" data-index="{{idx}}"><image src="{{it}}" /></view>
+                        <view class="record-desc">{{item.comment ? item.comment : ''}}</view>
+                    </view>
+                    <view class="record-desc">暂无点评信息。</view>                   
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{index == 2}}">
+            <view class="bar" bindtap="infoSubmit">提交</view>
+            <scroll-view scroll-y="true" class="content-min-pad bar-content tab-content">
+                <view class="list-block comment-form">
+                    <view class="item-content">
+                        <view class="item-inner">
+                            <view class="item-title label">宝贝姓名：</view>
+                            <view class="item-input">
+                                {{info.name}}
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-content">
+                        <view class="item-inner">
+                            <view class="item-title label">宝贝头像：</view>
+                            <view class="item-input">
+                                <image src="{{info.avatar}}" class="avatar-logo"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-content w50">
+                        <view class="item-inner">
+                            <view class="item-title label">印章个数：</view>
+                            <view class="item-input">
+                                <input type="text" value="{{info.seal}}" bindblur="fillSeal" />
+                            </view>
+                        </view>
+                        <view class="item-inner">
+                            <view class="item-title label">勋章个数：</view>
+                            <view class="item-input">
+                                <input type="text" value="{{info.medal}}" bindblur="fillMedal" />
+                            </view>
+                        </view>
+                    </view>
+                    <view class="item-content">
+                        <view class="item-inner">
+                            <view class="item-title label">护照号码：</view>
+                            <view class="item-input">
+                                <input type="text" value="{{info.passportNo}}" bindblur="fillPassportNo" />
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="info-form">
+                    <view class="info-form-item">
+                        <text class="info-label">性格：</text>
+                        <view class="info-list">
+                            <checkbox-group class="radio-group" bindchange="changeNature">
+                                <label class="label-radio orange font12" wx:for="{{nature}}">
+                                    <i class="icon icon-form-radio {{item.active}}"></i>
+                                    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+                                </label>
+                            </checkbox-group>
+                            <input type="text" placeholder="其他补充" value="{{info.natureRemark}}" bindblur="fillNature" />
+                        </view>
+                    </view>
+                    <view class="info-form-item">
+                        <text class="info-label">兴趣：</text>
+                        <view class="info-list">
+                            <checkbox-group class="radio-group" bindchange="changeInterest">
+                                <label class="label-radio orange font12" wx:for="{{interest}}">
+                                    <i class="icon icon-form-radio {{item.active}}"></i>
+                                    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+                                </label>
+                            </checkbox-group>
+                            <input type="text" placeholder="其他补充" value="{{info.interestRemark}}" bindblur="fillInterest" />
+                        </view>
+                    </view>
+                    <view class="info-form-item">
+                        <text class="info-label">家庭：</text>
+                        <view class="info-list">
+                            <radio-group class="radio-group" bindchange="changeFamily">
+                                <label class="label-radio orange font12" wx:for="{{family}}">
+                                    <i class="icon icon-form-radio {{item.active}}"></i>
+                                    <radio data-index="{{index}}" value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+                                </label>
+                            </radio-group>
+                            <input type="text" placeholder="其他补充" value="{{info.familyRemark}}" bindblur="fillFamily" />
+                        </view>
+                    </view>
+                    <view class="info-form-item">
+                        <text class="info-label">家庭住址：</text>
+                        <view class="info-list">
+                            <input type="text" value="{{info.address}}" bindblur="fillAddress" />
+                        </view>
+                    </view>
+                    <view class="info-form-item">
+                        <text class="info-label">宝贝学校：</text>
+                        <view class="info-list">
+                            <input type="text" placeholder="请填写学校" class="w47 mRight2" placeholder-style="width:200rpx;" value="{{info.school}}" bindblur="fillSchool" />
+                            <input type="text" placeholder="请填写年级" class="w47" placeholder-style="width:200rpx;" value="{{info.grade}}" bindblur="fillGrade" />
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

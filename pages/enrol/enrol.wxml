@@ -1,0 +1,138 @@
+<view class="page page-enrol" id="enrol">
+<view id="enrol" class="content">
+    <view class="content-min-pad">
+        <view wx:for="{{item}}">
+            <view class="enrol-box" data-id="{{item.id}}">
+                <view class="enrol-title">
+                    <text>{{item.name}}</text>
+                    <navigator url="../plan/plan.wxml?id={{item.id}}" class="pull-right orange">活动安排>></navigator>
+                </view>               
+                <view class="enrol-person mTop10" wx:if="{{item.leaderLevel == 5 && item.principal > 0}}">
+                    <view class=" row no-gutter">
+                        <view class="col-35">
+                            负责人：<text class="orange">{{item.principal}}人</text>
+                        </view>
+                        <view class="col-40">
+                            已报：
+                            <text class="orange">{{item.principals.length}}人</text>
+                            <text class="{{!item.flags.pFlag ? 'arrow-down' : 'arrow-up'}} pull-right" bindtap="fold" data-index="{{index}}" data-type="pFlag"></text>
+                        </view>
+                        <view class="col-25" bindtap="sign" data-id="{{item.id}}" data-ptype="0">
+                            <button wx:if="{{item.pstatus== -1}}" class="button button-round button-warning" data-val="立即报名">立即报名</button>
+                            <button wx:if="{{item.pstatus== 0}}" class="button button-round button-primary" data-val="取消报名">取消报名</button>
+                            <button wx:if="{{item.pstatus== 1}}" class="button button-round button-warning">审核通过</button>
+                            <button wx:if="{{item.pstatus== 2}}" class="button button-round button-light">审核不通过</button>
+                            <button wx:if="{{item.pstatus== 3}}" class="button button-round button-light">已满员</button>
+                        </view>
+                    </view>
+                    <view class="enrol-avator mTop10" hidden="{{!item.flags.pFlag ? true : false}}">
+                        <view wx:if="{{item.principals.length == 0}}">
+                            <text class="no-enrol">暂无报名</text>
+                        </view>
+                        <view x:else>
+                            <view wx:for="{{item.principals}}" wx:for-item="i">
+                                <view class="enrol-avator-item">
+                                    <image src="{{i.avatar}}" />
+                                    <text>{{i.nickname}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="enrol-person mTop10" wx:if="{{(item.leaderLevel == 2 || item.leaderLevel == 3 || item.leaderLevel == 5) && item.leader > 0}}">
+                    <view class=" row no-gutter">
+                        <view class="col-35">
+                            优秀领队：<text class="orange">{{item.leader}}人</text>
+                        </view>
+                        <view class="col-40">
+                            已报：
+                            <text class="orange">{{item.leaders.length}}人</text>
+                            <text class="{{!item.flags.lFlag ? 'arrow-down' : 'arrow-up'}} pull-right" bindtap="fold" data-index="{{index}}" data-type="lFlag"></text>
+                        </view>
+                        <view class="col-25" bindtap="sign" data-id="{{item.id}}" data-ptype="1">
+                            <button wx:if="{{item.lstatus== -1}}" class="button button-round button-warning" data-val="立即报名">立即报名</button>
+                            <button wx:if="{{item.lstatus== 0}}" class="button button-round button-primary" data-val="取消报名">取消报名</button>
+                            <button wx:if="{{item.lstatus== 1}}" class="button button-round button-warning">审核通过</button>
+                            <button wx:if="{{item.lstatus== 2}}" class="button button-round button-light">审核不通过</button>
+                            <button wx:if="{{item.lstatus== 3}}" class="button button-round button-light">已满员</button>
+                        </view>
+                    </view>
+                    <view class="enrol-avator mTop10" hidden="{{!item.flags.lFlag ? true : false}}">
+                        <view wx:if="{{item.leaders.length == 0}}">
+                            <text class="no-enrol">暂无报名</text>
+                        </view>
+                        <view x:else>
+                            <view wx:for="{{item.leaders}}" wx:for-item="i">
+                                <view class="enrol-avator-item">
+                                    <image src="{{i.avatar}}" />
+                                    <text>{{i.nickname}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="enrol-person mTop10" wx:if="{{(item.leaderLevel == 1 || item.leaderLevel == 2 || item.leaderLevel == 3 || item.leaderLevel == 5) && item.sideLeader > 0}}">
+                    <view class=" row no-gutter">
+                        <view class="col-35">
+                            合格领队：<text class="orange">{{item.sideLeader}}人</text>
+                        </view>
+                        <view class="col-40">
+                            已报：
+                            <text class="orange">{{item.sideLeaders.length}}人</text>
+                            <text class="{{!item.flags.sFlag ? 'arrow-down' : 'arrow-up'}} pull-right" bindtap="fold" data-index="{{index}}" data-type="sFlag"></text>
+                        </view>
+                        <view class="col-25" bindtap="sign" data-id="{{item.id}}" data-ptype="2">
+                            <button wx:if="{{item.slstatus== -1}}" class="button button-round button-warning" data-val="立即报名">立即报名</button>
+                            <button wx:if="{{item.slstatus== 0}}" class="button button-round button-primary" data-val="取消报名">取消报名</button>
+                            <button wx:if="{{item.slstatus== 1}}" class="button button-round button-warning">审核通过</button>
+                            <button wx:if="{{item.slstatus== 2}}" class="button button-round button-light">审核不通过</button>
+                            <button wx:if="{{item.slstatus== 3}}" class="button button-round button-light">已满员</button>
+                        </view>
+                    </view>
+                    <view class="enrol-avatar mTop10" hidden="{{!item.flags.sFlag ? true : false}}">
+                        <view wx:if="{{item.sideLeaders.length == 0}}">
+                            <text class="no-enrol">暂无报名</text>
+                        </view>
+                        <view x:else wx:for="{{item.sideLeaders}}" wx:for-item="i">
+                            <view class="enrol-avatar-item">
+                                <image src="{{i.avatar}}" class="avatar-logo" />
+                                <text>{{i.nickname}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="enrol-person mTop10" wx:if="{{(item.leaderLevel == 1 || item.leaderLevel == 2 || item.leaderLevel == 3 || item.leaderLevel == 5) && item.followLeader > 0}}">
+                    <view class=" row no-gutter">
+                        <view class="col-35">
+                            实习领队：<text class="orange">{{item.followLeader}}人</text>
+                        </view>
+                        <view class="col-40">
+                            已报：
+                            <text class="orange">{{item.followLeaders.length}}人</text>
+                            <text class="{{!item.flags.fFlag ? 'arrow-down' : 'arrow-up'}} pull-right" bindtap="fold" data-index="{{index}}" data-type="fFlag"></text>
+                        </view>
+                        <view class="col-25" bindtap="sign" data-id="{{item.id}}" data-ptype="3">
+                            <button wx:if="{{item.flstatus== -1}}" class="button button-round button-warning" data-val="立即报名">立即报名</button>
+                            <button wx:if="{{item.flstatus== 0}}" class="button button-round button-primary" data-val="取消报名">取消报名</button>
+                            <button wx:if="{{item.flstatus== 1}}" class="button button-round button-warning">审核通过</button>
+                            <button wx:if="{{item.flstatus== 2}}" class="button button-round button-light">审核不通过</button>
+                            <button wx:if="{{item.flstatus== 3}}" class="button button-round button-light">已满员</button>
+                        </view>
+                    </view>
+                    <view class="enrol-avator mTop10" hidden="{{!item.flags.fFlag ? true : false}}">
+                        <view wx:if="{{item.followLeaders.length == 0}}">
+                            <text class="no-enrol">暂无报名</text>
+                        </view>
+                        <view x:else wx:for="{{item.followLeaders}}" wx:for-item="i">
+                            <view class="enrol-avator-item">
+                                <image src="{{i.avatar}}" />
+                                <text>{{i.nickname}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+</view>

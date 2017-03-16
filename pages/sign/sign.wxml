@@ -1,0 +1,123 @@
+<view class="page page-sign" id="sign">
+    <view id="sign" class="content">
+        <view class="leader-tip orange">您尚未成为宝贝领队，请填写正确报名信息。</view>
+    
+        <view class="list-block leader-sign" id="sign-form">
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*姓名：</view>
+                    <view class="item-input">
+                        <input type="text" placeholder="请输入姓名" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*手机：</view>
+                    <view class="item-input">
+                        <input type="text" placeholder="请输入手机号" disabled />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*所在城市：</view>
+                    <view class="item-input">
+                    <picker mode = selector bindchange="bindPickerChange" value="1" range="{{array}}">
+                        <view class="picker">杭州</view>
+                        <span class="arrow"></span>
+                    </picker>
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*头像：</view>
+                    <view class="item-input">
+                        <image src="{{avatar}}" mode="scaleToFill"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*学校名称：</view>
+                    <view class="item-input">
+                        <input type="text" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*专业：</view>
+                    <view class="item-input">
+                        <input type="text" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">支付宝：</view>
+                    <view class="item-input">
+                        <input type="text" placeholder="请正确姓名对应支付宝，结算领队费" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*专业：</view>
+                    <view class="item-input">
+                        <input type="text" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">证件类型：</view>
+                    <view class="item-input">
+                    <picker mode = selector bindchange="bindPickerChange" value="1" range="{{array}}">
+                        <view class="picker">身份证</view>
+                        <span class="arrow"></span>
+                    </picker>
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">证件号码：</view>
+                    <view class="item-input">
+                        <input type="text" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*出生年月：</view>
+                    <view class="item-input">
+                        <input type="text" placeholder="正确填写，以便买保险" />
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">*性别：</view>
+                    <view class="item-input">
+                        <radio-group class="radio-group" bindchange="radioChange">
+                            <label class="label-radio orange font12" wx:for="{{gender}}">
+                                <i class="icon icon-form-radio {{item.active}}"></i>
+                                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <view class="item-inner">
+                    <view class="item-title label">自我介绍：</view>
+                    <view class="item-input">
+                        <textarea style="height:50px;" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

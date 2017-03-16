@@ -1,0 +1,25 @@
+/* pages/children/children.wxss */
+.children-list {
+    border-top: 1px solid #ea5404;
+}
+.children-list-item{
+    height:130rpx;
+    line-height:130rpx;
+}
+.children-list-item image{
+    float:left;
+    width:100rpx;
+    height:100rpx;
+    border-radius: 50%;
+    margin:15rpx 0;
+}
+.children-text{
+    margin-left:130rpx;
+    border-bottom:1px solid #ea5404;
+    color:#ea5404;
+    padding-left:50rpx;
+    font-size:28rpx;
+}
+.children-text .name{
+    padding-right:50rpx;
+}

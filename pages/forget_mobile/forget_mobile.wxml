@@ -1,0 +1,38 @@
+<view class="page page-forget" id="forget">
+    <view id="forget" class="content">
+        <view class="baby-home-box mTop20">
+            <view class="baby-home"></view>
+        </view>
+        <form id="register-form">
+            <view class="inputs">
+                <view class="login-input">
+                    <view class="item-input">
+                        <input type="number" placeholder="输入手机号码" />
+                    </view>
+                </view>
+                <view class="login-input">
+                    <view class="item-input">
+                        <input type="number" name="vcode" placeholder="输入验证码" />
+                    </view>
+                    <view class="item-after">
+                        <button class="button button-warning getCode">获取验证码</button>
+                    </view>
+                </view>
+                <view class="login-input">
+                    <view class="item-input">
+                        <input type="text" password="true" placeholder="输入登录密码" />
+                    </view>
+                </view>
+            </view>
+            <view class="content-pad">
+                <button class="button button-warning button-round">注册</button>
+                <view class="mTop10">
+                    <label class="label-radio white font12" bindtap="checkboxChange">
+                        <i class="icon icon-form-radio"></i>
+                        <checkbox checked="true" />我已阅读并同意《用户协议》
+                    </label>
+                </view>
+            </view>
+        </form> 
+    </view>
+</view>

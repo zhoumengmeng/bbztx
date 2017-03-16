@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/live/live",
+    "pages/children/children",
+    "pages/child_detail/child_detail",
+    "pages/enrol/enrol",
+    "pages/login/login",
+    "pages/teams/teams",
+    "pages/sel_team/sel_team",
+    "pages/sign/sign",
+    "pages/forget_mobile/forget_mobile",
+    "pages/register/register",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#161a23",
+    "backgroundColor": "#161a23"
+  }
+}

@@ -1,0 +1,59 @@
+/**index.wxss**/
+.sign-tips{
+  padding:60rpx 40rpx;
+  text-align:center;
+  color:#dcdddd;
+  line-height:36px;
+  font-size:14px;
+}
+.account-box, .activity-box {
+    padding: 50rpx 70rpx;
+}
+.account-head, .activity-head {
+    -webkit-box-sizing: border-box;
+    box-sizing:border-box;
+    width: 200rpx;
+    height: 200rpx;
+    border: 2px solid #ea5404;
+    border-radius: 50%;
+    padding: 10rpx;
+}
+.account-head image, .activity-head image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.account-content {
+    color: #fff;
+    padding-left: 240rpx;
+    height: 200rpx;
+    font-size: 32rpx;
+    position: relative;
+}
+.account-text {
+    margin: 0;
+    padding: 40rpx 0;
+    line-height: 60rpx;
+}
+.account-icon {
+    overflow: hidden;
+    text-align: center;
+    background: #13171f;
+    padding: 20rpx 0;
+    margin-bottom: 60rpx;
+}
+.account-icon .label {
+    display: block;
+    font-size: 26rpx;
+}
+.account-icon .icon {
+    font-size: 2rem;
+}
+.account-content .icon {
+    position: absolute;
+    top: 8px;
+    right: -25px;
+    font-size: 60px;
+    color: #ea5404;
+}
